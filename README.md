@@ -14,8 +14,7 @@ This project is a Python-based application for data analysis and visualization. 
 
 1. Clone this repository:
    ```bash
-   git clone <repository_url>
-   cd <repository_name>
+   git clone https://github.com/Ryu2804/Dongsi-Air-Pollution-Project.git
    ```
 
 2. Install the required dependencies:
