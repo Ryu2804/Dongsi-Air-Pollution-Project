@@ -26,7 +26,7 @@ Demo = https://dongsiairpollution.streamlit.app/
 
 3. Run the Streamlit app:
    ```bash
-   streamlit run app.py
+   streamlit run Dashboard/dashboard.py
    ```
 
 ## Requirements
