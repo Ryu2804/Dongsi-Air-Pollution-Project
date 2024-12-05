@@ -78,6 +78,14 @@ dongsi_year_PM25_df = dongsi_year_PM(dongsi_df,"PM2.5")
 dongsi_year_PM10_df = dongsi_year_PM(dongsi_df,"PM10")
 dongsi_date_PM25_df = dongsi_date_PM(main_df,"PM2.5")
 dongsi_date_PM10_df = dongsi_date_PM(main_df,"PM10")
+corr_df = pd.DataFrame({
+    "SO2": main_df["SO2"],
+    "NO2": main_df["NO2"],
+    "CO": main_df["CO"],
+    "O3": main_df["O3"],
+    "PM2.5": main_df["PM2.5"],
+    "PM10": main_df["PM10"]
+})
 
 st.markdown("<h5 style='text-align: center;'>Air Pollution Trend Based on PM2.5 and PM10 in Dongsi Station </h5>", unsafe_allow_html=True)
 
@@ -88,6 +96,13 @@ axes[1].plot(dongsi_date_PM10_df, marker='.', linewidth=0.5, color="blue")
 st.pyplot(fig)
 
 # Data Visual 2
+st.markdown("<h5 style='text-align: center;'>Pollutant Substance Correlation with Pollutant Matter (PM) </h5>", unsafe_allow_html=True)
+correlation_matrix = corr_df.corr()
+fig = plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap="YlOrBr", fmt=".2f", linewidths=0.5)
+st.pyplot(fig)
+
+# Data Visual 3
 st.markdown("<h5 style='text-align: center;'>Air Pollution Trend Based on PM2.5 and PM10 in Dongsi Station (By Year) </h5>", unsafe_allow_html=True)
 fig = plt.figure(figsize=(10, 5))
 plt.plot(dongsi_year_PM25_df, marker='o', linewidth=2, color="red")
@@ -108,7 +123,7 @@ st.pyplot(fig)
  
 st.markdown("<br>", unsafe_allow_html=True)
  
-# Data Visual 3
+# Data Visual 4
 st.markdown("<h5 style='text-align: center;'>Average Monthly Pollutant Substance in Dongsi Station</h5>", unsafe_allow_html=True)
 fig, axes = plt.subplots(2, 2, figsize=(12, 10))
 
@@ -154,6 +169,8 @@ axes[1, 1].tick_params(axis='x', rotation=45)
 
 plt.tight_layout()
 st.pyplot(fig)
+
+
  
 # Conclusion
 st.markdown("""

@@ -25,7 +25,7 @@ This project is a Python-based application for data analysis and visualization. 
 
 3. Run the Streamlit app:
    ```bash
-   streamlit run app.py
+   streamlit run Dashboard/dashboard.py
    ```
 
 ## Requirements
